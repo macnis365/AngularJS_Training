@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="serverApp">
+    <head>
+        <script src="js/angular.js"></script>  
+        <script src="js/angular-resource.js"></script>  
+
+    </head>
+    <body>
+        <h3>{{"Server Communication Example"}}</h3>
+        
+        <div ng-controller="HttpCtrl">
+            <ol>
+                <li ng-repeat="item in details">{{item.name}}</li>
+            </ol>
+        </div>
+        
+                <div ng-controller="ResourceCtrl">
+            <ol>
+                <li ng-repeat="item in resourceDetails">{{item.name}}</li>
+            </ol>
+        </div>
+        
+        <script>
+            var httpmodule = angular.module("serverApp", ['ngResource']);
+            
+            httpmodule.controller("HttpCtrl", function($http, $scope){
+                $http.get("http://localhost:2403/wsmenuitems")
+                    .then(function(sucessResponse){
+                    console.log("Sucess Response", sucessResponse);
+                    $scope.details = sucessResponse.data;
+                }, 
+                          function(failureResponse){console.log("Failure Response", failureResponse)});
+            })
+            
+            httpmodule.controller("ResourceCtrl", function($resource, $scope){
+                $resource("http://localhost:2403/wsmenuitems")
+                .query(function(successResponse){
+                    console.log("Sucess Response", successResponse);
+                $scope.resourceDetails = successResponse}), function(FailureResponse){console.log("Failure Response", failureResponse);}
+            })
+        </script>
+    </body>
+</html>

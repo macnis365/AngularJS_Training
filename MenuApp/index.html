@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="menuApp">
+    <head>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <script src="js/angular.js"> </script>
+        <script src="js/menuapp.js"> </script>
+        <script src="js/appcontroller.js"> </script>
+        
+        <script src="js/angular-sanitize.js"> </script>
+        <script src="js/appServices.js"></script>
+        <script src="js/appFactory.js"></script>
+        <script src="js/angular-route.js"></script>
+    </head>
+    <body class="container" ng-controller="MainController">
+<!--
+        {{30+40}}
+-->
+<!--        <h1>{{"Restaurant Application***"}}</h1>-->
+<!--
+        <h1>{{pageHeading}}</h1>
+-->
+        <h1 ng-bind-html="pageHeading"></h1>
+        
+        <a href="#!/">Home  |</a>
+        <a href="#!/menucard">Menu Card |</a>
+        <a href="#!/manageitems">Mange items</a>
+        <ng-view></ng-view>
+    </body>
+</html>

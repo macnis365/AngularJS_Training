@@ -27,3 +27,11 @@ app.run(function(){
 
 //Registe Value Object
 //app.value('vorders', []);
+
+//Register a Filter "truncate"
+app.filter("truncate", function(){
+    return function(inputTextParm, turncateLengthparam){
+        var result = (inputTextParm.length > turncateLengthparam) ? inputTextParm.substr(0, turncateLengthparam)+"..." : input;
+        return result;
+    }
+})

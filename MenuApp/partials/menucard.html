@@ -15,7 +15,7 @@
                     <th>Name</th><th>Price</th><th>Description</th><th>Order</th>
                 </tr>
                 
-                <tr ng-repeat="menuitem in itemsList | filter:mySearch">
+                <tr ng-repeat="menuitem in itemsList | filter:mySearch | orderBy: '-name'">
                     <td>{{$index}}. {{menuitem.name | uppercase}}</td>
                     <td>{{menuitem.price}}</td>
                     <td>{{menuitem.description}}</td>

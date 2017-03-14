@@ -8,7 +8,7 @@
                 </tr>
                 
                 <tr ng-repeat="menuitem in itemsList">
-                    <td>{{$index}}. {{menuitem.name}}</td>
+                    <td>{{$index}}. {{menuitem.name | uppercase}}</td>
                     <td>{{menuitem.price}}</td>
                     <td>{{menuitem.description}}</td>
                     <td><button class="btn btn-primary" ng-click="placeOrder(menuitem)">Add item</button></td>
@@ -24,7 +24,7 @@
                     <th>Name</th><th>Price</th><th>Quantity</th><th>Amount</th>
                 </tr>
                 <tr ng-repeat="item in orderitems">
-                    <td><button class="btn btn-danger btn xs" ng-click="removeItem($index)">X</button>{{item.name}}</td>
+                    <td><button class="btn btn-danger btn xs" ng-click="removeItem($index)">X</button>{{item.name | uppercase}}</td>
                     <td>{{item.price}}</td>
                     <td><input type="number" ng-model="item.qty" style="width:50px"></td>
                     <td>{{item.price*item.qty}}</td>

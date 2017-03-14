@@ -1,1 +1,18 @@
 <h3>Manage Menu Items</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+    </tr>
+    
+    <tr ng-repeat="menuitem in itemsList">
+        <td>{{menuitem.code}}</td>
+        <td>{{menuitem.name}}</td>
+        <td>{{menuitem.price}}</td>
+        <td>{{menuitem.description}}</td>
+    </tr>
+
+</table>

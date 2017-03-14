@@ -14,8 +14,11 @@ app.config(function($routeProvider){
     })
     
     $routeProvider.when("/manageitems", {
-        templateUrl: "partials/manageitems.html"
+        templateUrl: "partials/manageitems.html",
+        controller: "MenuController"
     })
+    
+    $routeProvider.otherwise({template: "<h3>OOOOOpsssss!!!!! Sorryy  No Resource Found. !@#$%</h3>"})
 });
 
 app.run(function(){

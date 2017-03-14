@@ -4,6 +4,18 @@ appServices.service('MenuService', function(MenuFactory){
     this.getAllMenuItems = function(){
         return MenuFactory.getMenuItems();
     }
+    
+    this.addMenuItem = function(newmenuitem) {
+        MenuFactory.addMenuItem(newmenuitem);
+    }
+    
+    this.deleteMenuItem = function(menuId, index) {
+        MenuFactory.deleteMenuItem(menuId, index);
+    }
+    
+    this.updateMenuItem = function(menuItem) {
+        MenuFactory.updateMenuItem(menuItem);
+    }
 })
 
 appServices.service('OrderService', function(OrderFactory){

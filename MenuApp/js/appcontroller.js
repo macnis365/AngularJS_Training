@@ -27,6 +27,25 @@ ctrlModule.controller("MenuController", function($scope, MenuService, OrderServi
 //        vorders.push(orderedItem);
         OrderService.addOrderedItems(orderedItem);
     }
+    
+    $scope.save = function() {
+        
+        if($scope.newmenuitem.id === undefined){
+            MenuService.addMenuItem($scope.newmenuitem);    
+        } else {
+            MenuService.updateMenuItem($scope.newmenuitem);
+        }
+        
+        $scope.newmenuitem = {};
+    }
+    
+    $scope.remove = function(menuId, index){
+        MenuService.deleteMenuItem(menuId, index);
+    }
+    
+    $scope.edit = function(menuitem) {
+        $scope.newmenuitem = angular.copy(menuitem);
+    }
 })
 
 //ctrlModule.controller("OrderController", function($scope, vorders) {

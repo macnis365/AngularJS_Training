@@ -12,10 +12,11 @@
             </div>-->
             <table class="table table-bordered">
                 <tr>
-                    <th>Name</th><th>Price</th><th>Description</th><th>Order</th>
+                    <th><a ng-click="sortColumn='name'">Name</a></th>
+                    <th><a ng-click="sortColumn='price'">Price</a></th><th>Description</th><th>Order</th>
                 </tr>
                 
-                <tr ng-repeat="menuitem in itemsList | filter:mySearch | orderBy: '-name'">
+                <tr ng-repeat="menuitem in itemsList | filter:mySearch | orderBy: sortColumn">
                     <td>{{$index}}. {{menuitem.name | uppercase}}</td>
                     <td>{{menuitem.price}}</td>
                     <td>{{menuitem.description}}</td>

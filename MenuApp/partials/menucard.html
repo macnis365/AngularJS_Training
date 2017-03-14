@@ -2,12 +2,20 @@
 
 <div class="col-sm-6" ng-controller="MenuController">
             <h3>List of Menu Items</h3>
+<!--    search on complete collection and all elements-->
+    <div class="well">
+                Search: <input ng-model="mySearch">
+            </div>
+    <!--search on a column complete collection-->
+ <!--       <div class="well">
+                Search: <input ng-model="mySearch.price">
+            </div>-->
             <table class="table table-bordered">
                 <tr>
                     <th>Name</th><th>Price</th><th>Description</th><th>Order</th>
                 </tr>
                 
-                <tr ng-repeat="menuitem in itemsList">
+                <tr ng-repeat="menuitem in itemsList | filter:mySearch">
                     <td>{{$index}}. {{menuitem.name | uppercase}}</td>
                     <td>{{menuitem.price}}</td>
                     <td>{{menuitem.description}}</td>
@@ -19,6 +27,7 @@
         <div class="col-sm-6 well" ng-controller="OrderController">
             <h3>Ordered Items 
                 <span class="label label-primary">{{orderitems.length}}</span> </h3>
+            
             <table class="table table-bordered">
                 <tr>
                     <th>Name</th><th>Price</th><th>Quantity</th><th>Amount</th>

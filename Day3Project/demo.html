@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+    <head>
+        <script src="js/angular.js"></script>
+        <script src="js/demoapp.js"></script>
+    </head>
+    <body>
+        <h2>{{"Minification Example"}}</h2>
+        
+        <h1 ng-controller="FirstCtrl as fc">
+            {{fc.msg}}
+        <br>
+        <button ng-click="fc.justDoIt()">JUST DO IT!</button>
+        </h1>
+        
+        <h1 ng-controller="DemoController">
+            {{counter}}
+        <br>
+            <button ng-click="increamentCounter()">Increment the counter</button>
+        </h1>
+    </body>
+</html>

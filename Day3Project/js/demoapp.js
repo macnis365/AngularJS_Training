@@ -26,4 +26,13 @@ demoAppModule.controller("DemoController", ["$scope", function(scopeasargument){
     scopeasargument.increamentCounter = function() {
         scopeasargument.counter += 1;
     }
+    
+    /*JS event handling*/
+    document.getElementById("mybutton").addEventListener("click", function(){
+        scopeasargument.counter++;
+        console.log("Counter increament via eventlistener - ", scopeasargument.counter);
+        scopeasargument.$apply();
+    })
 }])
+
+/*cmd for minification- uglifyjs demoapp.js -o demoapp.min.js -m*/

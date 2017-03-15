@@ -12,19 +12,32 @@
         <hr>
         
         <div ui-view></div>
+        
+        <div ui-view="paritalview1"></div>
+        <div ui-view="paritalview2"></div>
+        <div ui-view="paritalview3"></div>
         <script>
         
             var app = angular.module("uiDemoApp", ['ui.router']);
             /*defining a state*/
             app.config(function($stateProvider, $urlRouterProvider){
+                /*state creation*/
                 $stateProvider.state("home", {url:"/home",template: "<h1>Welcome Home</h1>"});
                 
+                $stateProvider.state("partials", {
+                    url: "/mypage",
+                    views:{
+                        "paritalview1":{template: "<h3>Partial View 1</h3>"},
+                        "paritalview2":{template: "<h3>Partial View 2</h3>"},
+                        "paritalview3":{template: "<h3>Partial View 3</h3>"}
+                    }
+                })
                 $urlRouterProvider.otherwise("/home");
             })
             
             app.controller("MainCtrl", function($scope, $state){
                 $scope.showHome = function(){
-                    $state.go("home")
+                    $state.go("partials")
                 }
             })
         </script>

@@ -11,12 +11,19 @@ demoAppModule.controller("FirstCtrl", function(){
     }
 })
 
-/*Register a controller with Scope*/
-demoAppModule.controller("DemoController", function($scope){
+/*Register a controller with Scope*/ /*problem with uglifyjs*/
+/*demoAppModule.controller("DemoController", function($scope){*/
     /*Define a counter model with 0*/
-    $scope.counter = 0;
+/*    $scope.counter = 0;*/
     /*Define a Bheviour to increase counter value*/
-    $scope.increamentCounter = function(){
+ /*   $scope.increamentCounter = function(){
         $scope.counter = $scope.counter+1;
-    };
-})
+    };*/
+/*})*/
+
+demoAppModule.controller("DemoController", ["$scope", function(scopeasargument){
+    scopeasargument.counter = 0;
+    scopeasargument.increamentCounter = function() {
+        scopeasargument.counter += 1;
+    }
+}])

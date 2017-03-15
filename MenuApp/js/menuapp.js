@@ -18,11 +18,27 @@ app.config(function($routeProvider){
         controller: "MenuController"
     })
     
+    $routeProvider.when("/login", {
+        templateUrl: "partials/login.html",
+        controller: "LoginController"
+    })
+    
+    $routeProvider.when("/error", {
+        template: "<h3>Invalid Credentials..</h3>"
+    })
+    
+    $routeProvider.when("/logout", {
+        
+        template: "<h3>Logged Out..</h3>"
+    })
+    
     $routeProvider.otherwise({template: "<h3>OOOOOpsssss!!!!! Sorryy  No Resource Found. !@#$%</h3>"})
 });
 
-app.run(function(){
+app.run(function($rootScope){
     console.log("Menu App - Run Phase...")
+    
+    $rootScope.isLogin = false;
 });
 
 //Registe Value Object

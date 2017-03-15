@@ -24,7 +24,9 @@
         
         <a href="#!/">Home  |</a>
         <a href="#!/menucard">Menu Card |</a>
-        <a href="#!/manageitems">Mange items</a>
+        <a href="#!/manageitems" ng-show="isLogin">Mange items    |</a>
+        <a href="#!/login" ng-hide="isLogin">Login    |</a>
+        <a href="#!/logout" ng-show="isLogin">Logout</a>
         <ng-view></ng-view>
     </body>
 </html>

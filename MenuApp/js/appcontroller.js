@@ -11,9 +11,28 @@ ctrlModule.run(function(){
 })
 
 //Define a Controller "MainController"
-ctrlModule.controller("MainController", function($scope) {
+ctrlModule.controller("MainController", function($scope, $location, $rootScope) {
     console.log("This is Main Controller Function");
     $scope.pageHeading = "<u>Restaurant Application</u>";
+    
+    $scope.$on("$routeChangeSuccess", function(){
+        console.log("Route Change Successfully to - " + $location.path());
+        
+        if($location.path() === "/logout")
+            $rootScope.isLogin = false;
+            
+    })
+    
+    $scope.$on("$routeChangeStart", function(){
+        console.log("Route Change Start - " + $location.path());
+        
+        if(!$rootScope.isLogin) {
+            if($location.path() == "/manageitems")
+            {
+                $location.path("/login")
+            }
+        }
+    })
 })
 
 //ctrlModule.controller("MenuController", function($scope, vorders) {
@@ -62,4 +81,19 @@ ctrlModule.controller("OrderController", function($scope, OrderService) {
     $scope.totalAmount = function() {
        return OrderService.getTotalAmount();
     }
+})
+
+ctrlModule.controller("LoginController", function($scope, $location, $rootScope){
+    console.log("inside Login Controller Function");
+    $rootScope.isLogin = false;
+    $scope.doLogin = function(){
+        if($scope.login.username === "admin")
+            {
+                $rootScope.isLogin = true;
+                $location.path("/manageitems")    
+            } else {
+                $location.path("/error")
+            }
+    }
+    
 })

@@ -35,7 +35,8 @@ factoryVar.factory("MenuFactory", function($resource){
             
         },
         updateMenuItem: function(menuitem){
-        menuResource.save(menuitem, function(sucessResponse){console.log("Successfully Updated");}, function(failureRespnse){console.log("Failed to Update");})
+        menuResource.save(menuitem, function(sucessResponse){
+            console.log("Successfully Updated");}, function(failureRespnse){console.log("Failed to Update");})
     }
     }
 })

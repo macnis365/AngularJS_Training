@@ -7,7 +7,7 @@
     
     <body ng-controller="MainCtrl">
         <h3>{{"UI Router Example"}}</h3>
-        <a ui-sref="home">HomeComing</a> <!--activating a state-->
+        <a ui-sref="home.main">HomeComing</a> <!--activating a state-->
         <button ng-click="showHome()">Show Home</button>
         <hr>
         
@@ -22,7 +22,17 @@
             /*defining a state*/
             app.config(function($stateProvider, $urlRouterProvider){
                 /*state creation*/
-                $stateProvider.state("home", {url:"/home",template: "<h1>Welcome Home</h1>"});
+               /* $stateProvider.state("home", {url:"/home",template: "<h1>Welcome Home</h1>"});*/
+                
+                /*Parent abstract State*/
+                $stateProvider.state("home", {
+                    abstract: true,
+                    template: "<a ui-sref='.main'>Main</a> | <a ui-sref='.news'>News</a><div ui-view></div>"})
+                
+                /*Child State*/
+                $stateProvider.state("home.main", {url: "/main", template:"<h1>Main View Content</h1>"});
+                
+                $stateProvider.state("home.news", {url: "/news", template:"<h1>News Content</h1>"})
                 
                 $stateProvider.state("partials", {
                     url: "/mypage",
@@ -32,7 +42,7 @@
                         "paritalview3":{template: "<h3>Partial View 3</h3>"}
                     }
                 })
-                $urlRouterProvider.otherwise("/home");
+                $urlRouterProvider.otherwise("/mypage");
             })
             
             app.controller("MainCtrl", function($scope, $state){

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="uiDemoApp">
+    <head>
+        <script src="js/angular.js"></script>
+        <script src="js/angular-ui-router.js"></script>
+    </head>
+    
+    <body>
+        <h3>{{"UI Router Example"}}</h3>
+        <a ui-sref="home">HomeComing</a>//activating a state
+        <hr>
+        
+        <div ui-view></div>
+        <script>
+        
+            var app = angular.module("uiDemoApp", ['ui.router']);
+            //defining a state
+            app.config(function($stateProvider){
+                $stateProvider.state("home", {template: "<h1>Welcome Home</h1>"})
+            })
+        </script>
+    </body>
+
+</html>

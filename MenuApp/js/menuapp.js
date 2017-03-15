@@ -1,6 +1,6 @@
 //Create a Module "menuApp"
 
-var app = angular.module("menuApp", ['CtrlModule', 'ngSanitize', 'ngRoute', 'ngMessages']);
+var app = angular.module("menuApp", ['CtrlModule', 'ngSanitize', 'ngRoute', 'ngMessages', 'ngCsv']);
 
 //Module Loading Phases....
 app.config(function($routeProvider){

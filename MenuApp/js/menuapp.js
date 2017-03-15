@@ -1,6 +1,6 @@
 //Create a Module "menuApp"
 
-var app = angular.module("menuApp", ['CtrlModule', 'ngSanitize', 'ngRoute']);
+var app = angular.module("menuApp", ['CtrlModule', 'ngSanitize', 'ngRoute', 'ngMessages']);
 
 //Module Loading Phases....
 app.config(function($routeProvider){
@@ -30,6 +30,11 @@ app.config(function($routeProvider){
     $routeProvider.when("/logout", {
         
         template: "<h3>Logged Out..</h3>"
+    })
+    
+    $routeProvider.when("/signup", {
+        templateUrl: "partials/signup.html",
+        controller: "SignupController"
     })
     
     $routeProvider.otherwise({template: "<h3>OOOOOpsssss!!!!! Sorryy  No Resource Found. !@#$%</h3>"})

@@ -11,6 +11,8 @@
         <script src="js/appFactory.js"></script>
         <script src="js/angular-route.js"></script>
         <script src="js/angular-resource.js"></script>
+        
+        <script src="js/angular-messages.js"></script>
     </head>
     <body class="container" ng-controller="MainController">
 <!--
@@ -26,7 +28,8 @@
         <a href="#!/menucard">Menu Card |</a>
         <a href="#!/manageitems" ng-show="isLogin">Mange items    |</a>
         <a href="#!/login" ng-hide="isLogin">Login    |</a>
-        <a href="#!/logout" ng-show="isLogin">Logout</a>
+        <a href="#!/logout" ng-show="isLogin">Logout    |</a>
+        <a href="#!/signup" ng-hide="isLogin"> SignUp</a>
         <ng-view></ng-view>
     </body>
 </html>

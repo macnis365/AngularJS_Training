@@ -1,4 +1,4 @@
-var myservice = angular.module("serviceApp", []);
+var myservice = angular.module("serviceApp", ['myDirectivesApp']);
 
 myservice.controller("ServicesController", function($scope, appTitle, myFactory, empFactory, studentService, myProvider){
     $scope.val = appTitle;

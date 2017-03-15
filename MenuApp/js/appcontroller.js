@@ -97,3 +97,30 @@ ctrlModule.controller("LoginController", function($scope, $location, $rootScope)
     }
     
 })
+
+ctrlModule.controller("SignupController", function($scope){
+    console.log("inside SignupController Function")
+    
+    $scope.stateList = [
+        {"stateId":1, "stateName":'Karnataka'},
+        {"stateId":2, "stateName":'MadyaPradesh'}
+    ]
+    
+    $scope.$watch('user.state', function(newValue, oldValue){
+        console.log("Old Value : "+oldValue);
+        console.log("New Value : "+newValue);
+        
+        if(newValue === 1) {
+            $scope.cityList = [
+                {"cityId":101, "Name": "Bangalore"},
+                {"cityId":102, "Name": "Tumkur"},
+                {"cityId":102, "Name": "Mysore"}
+            ]
+        } else if(newValue === 2) {
+            $scope.cityList = [
+                {"cityId":101, "Name": "Indore"}
+            ]
+        }
+    })
+    
+})
